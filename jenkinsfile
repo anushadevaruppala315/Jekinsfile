@@ -1,34 +1,10 @@
-pipeline {
-
-   agent any 
-    
-   stages {
-    
-	 stage("compile stage") {
-	   
-	    steps {
-		    withMaven(maven : 'maven_3_8_6') {
-			   sh 'mvn clean compile'
-			  }
-	    }
-	   
-	 }
-      
-	  stage ("testing stage") {
-	  
-	    steps {
-		     withMaven(maven : 'maven_3_8_6') {
-			    sh 'mvn test'
-	       }
-	    } 
-	  }
-	 
-	 stage ("deployment stage") {
-	  
-	    steps {
-		    withMaven(maven : 'maven_3_8_6') {
-			   sh 'mvn delpoy'
-		    }
-		  }
-		}
+pipeline { 
+    agent any  
+    stages { 
+        stage('Build') { 
+            steps { 
+               echo 'This is a minimal pipeline.' 
+            }
+        }
+    }
 }
